@@ -1,7 +1,12 @@
 
 import { ConfigProvider, Flex, Segmented } from "antd"
-const ContentWomans: React.FC = ({text, subtext, segmented}) => {
+import { useState } from "react"
+
+const ContentWomans: React.FC = ({text, subtext, segmented, data}) => {
+    console.log(data);
     
+    const [segmentedValue, setSegmentedValue] = useState(segmented[0]);
+
     return (
         <ConfigProvider
             theme={{
@@ -24,7 +29,7 @@ const ContentWomans: React.FC = ({text, subtext, segmented}) => {
                         options={segmented}
                         defaultValue={segmented[0]}
                         onChange={(value) => {
-                            console.log(value); // string
+                            setSegmentedValue(value);
                         }}
                     />
 
@@ -36,25 +41,35 @@ const ContentWomans: React.FC = ({text, subtext, segmented}) => {
                 </div>
                 <div className="p-[30px] bg-[#f9f9f9] border-solid border-[1px] border-[#e6e6e6] flex-1">
                     <h1 className="text-[20px] font-medium">примерное меню</h1>
-                    <div>
+                    <div className="mt-[20px]">
                         <img src="" alt="eats" />
                     </div>
-                    <div>
-                        <h3>в среднем за день</h3>
-                        <div>
-                            <div>
-                                <p>Белки</p>
-                                <p></p>
-                            </div>
-                            <div>
-                                <p>Жиры</p>
-                                <p></p>
-                            </div>
-                            <div>
-                                <p>Углеводы</p>
-                                <p></p>
-                            </div>
-                        </div>
+                    <div className="mt-[20px]">
+                        <h3 className="text-[#adadad] text-[1rem]">В среднем за день</h3>
+                        {
+                            data.map((item: any, i: number) => {
+                                if (item.calories === segmentedValue){
+                                    return (
+                                        <div key={i} className="flex gap-[20px]">
+                                            <div className="mt-[10px] flex flex-col">
+                                                <p className="text-[#adadad] text-[.75rem]">Белки</p>
+                                                <p className="text-[.88313rem] ">{item.bju.protein}</p>
+                                            </div>
+                                            <div className="mt-[10px] flex flex-col">
+                                                <p className="text-[#adadad] text-[.75rem]">Жиры</p>
+                                                <p className="text-[.88313rem] ">{item.bju.fats}</p>
+                                            </div>
+                                            <div className="mt-[10px] flex flex-col">
+                                                <p className="text-[#adadad] text-[.75rem]">Углеводы</p>
+                                                <p className="text-[.88313rem] ">{item.bju.car}</p>
+                                            </div>
+                                        </div>
+                                    )
+                                }
+                                
+                            })
+                        }
+                        
                     </div>
                 </div>
                 <div className="p-[30px] bg-[#f9f9f9] border-solid border-[1px] border-[#e6e6e6] flex-1">
