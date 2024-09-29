@@ -23,7 +23,7 @@ export default function Home() {
               <Link href="/for-mans">Для парней</Link>
             </li>
             <li>
-              <Link href="/for-women">Для девушек</Link>
+              <Link href="/for-womans">Для девушек</Link>
             </li>
             <li>
               <Link href="/no-milk">Без глютена и молока</Link>
@@ -49,7 +49,7 @@ export default function Home() {
                   <Link href="/for-mans">Для парней</Link>
                 </li>
                 <li>
-                  <Link href="/for-women">Для девушек</Link>
+                  <Link href="/for-womans">Для девушек</Link>
                 </li>
                 <li>
                   <Link href="/no-milk">Без глютена и молока</Link>

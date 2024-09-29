@@ -517,9 +517,6 @@ video {
 .flex {
   display: flex;
 }
-.contents {
-  display: contents;
-}
 .h-\[100\%\] {
   height: 100%;
 }
