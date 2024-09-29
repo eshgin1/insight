@@ -3,6 +3,7 @@
 import { Layout, Flex } from "antd";
 import Link from "next/link";
 import Category from "@/components/Category";
+import Company from "@/components/Company";
 
 const { Header, Footer, Sider, Content } = Layout;
 
@@ -35,6 +36,7 @@ export default function Home() {
               <h2 className="mt-[10px] text-center text-[24px] opacity-[0.7]">Готовое полезное питание с доставкой. Освободите время для важных дел.</h2>
             </div>
             <Category/>
+            <Company/>
         </Content>
         <Footer className="bg-white border-t-[1px] flex justify-between">
           <Link href="/">
