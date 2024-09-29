@@ -21,21 +21,21 @@ const Category: React.FC = () => {
             <Card 
                 hoverable
                 style={{ width: 400 }}
-                // cover={<img alt="example" src="" />}
+                cover={<img alt="example" src="" />}
             >
                 <Meta title="Для девушек" />
             </Card>
             <Card 
                 hoverable
                 style={{ width: 400 }}
-                // cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+                cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
             >
                 <Meta title="Для парней" />
             </Card>
             <Card 
                 hoverable
                 style={{ width: 400 }}
-                // cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+                cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
             >
                 <Meta title="Без глютена и молока" />
             </Card>
