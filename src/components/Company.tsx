@@ -39,14 +39,14 @@ const Company: React.FC = () => {
         <ConfigProvider
             theme={{
                 components: {
-                Button: {
-                        defaultBg: "#48b03a",
-                        defaultColor: "#fff",
-                        defaultHoverBg: "#48b03a",
-                        defaultHoverColor: "#fff",
-                        defaultHoverBorderColor: "#f9f9f9"
+                    Button: {
+                            defaultBg: "#48b03a",
+                            defaultColor: "#fff",
+                            defaultHoverBg: "#48b03a",
+                            defaultHoverColor: "#fff",
+                            defaultHoverBorderColor: "#f9f9f9"
+                        },
                     },
-                },
             }}
         >
             <div className="mt-[50px] flex justify-between items-center gap-[50px]">
