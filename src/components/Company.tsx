@@ -1,7 +1,40 @@
 "use client"
-import { Button, ConfigProvider, Modal } from "antd"
+import { useEffect, useState } from "react"
+import { Button, ConfigProvider, Input, Modal } from "antd"
+import { on } from "events";
+import { onSumbitMessage } from "@/utils/onSumbitMessage";
 
 const Company: React.FC = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [name, setName] = useState("");
+    const [phone, setPhone] = useState("");
+    const [message, setMessage] = useState("");
+
+    const getPhone = (event: any) => {
+        const inputValue = event.target.value;
+
+        const reg = /^-?\d*(\.\d*)?$/;
+        if (reg.test(inputValue) || inputValue === '' || inputValue === '-') {
+          setPhone(inputValue);
+        }
+    }    
+    
+    const showModal = () => {
+      setIsModalOpen(true);
+    };
+  
+    const handleOk = (event: any) => {
+      onSumbitMessage(event, name, phone, message, setName, setMessage, setPhone);    
+      setIsModalOpen(false);
+    };
+  
+    const handleCancel = () => {
+      setIsModalOpen(false);
+      setName("");
+      setPhone("");
+      setMessage("");
+    };
+
     return (
         <ConfigProvider
             theme={{
@@ -33,11 +66,16 @@ const Company: React.FC = () => {
                 </div>
                 <div className="flex flex-col justify-center items-center">
                     <h2 className="text-[24px] text-center font-bold ">У Вас есть вопрос или Вы хотите получить консультацию?</h2>
-                    <Button className="p-[20px] mt-[20px] hover:opacity-[0.95]">Отправить заявку на консультацию</Button>
+                    <Button className="p-[20px] mt-[20px] hover:opacity-[0.95]" onClick={showModal}>Отправить заявку на консультацию</Button>
                 </div>
             </div>
-            <Modal>
-                
+            <Modal title="Оставьте заявку" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+                <p className="mt-[5px]">Как Вас зовут?</p>
+                <Input placeholder="Ваше имя" value={name} onChange={(e) => setName(e.target.value)}/>
+                <p className="mt-[5px]">Номер телефона</p>
+                <Input placeholder="Ваш номер телефона" value={phone} maxLength={11} onChange={(e) => getPhone(e)}/>
+                <p className="mt-[5px]">Какой у Вас вопрос?</p>
+                <Input.TextArea placeholder="Ваш вопрос" value={message} onChange={(e) => setMessage(e.target.value)}/>
             </Modal>
         </ConfigProvider>
         
