@@ -25,7 +25,8 @@ const programmArr = [
                     protein: 52,
                     fats: 32,
                     car: 70
-                }
+                },
+                img: '/img/800-900.png'
             },
             {
                 calories: "1100-1200",
@@ -39,7 +40,8 @@ const programmArr = [
                     protein: 80,
                     fats: 55,
                     car: 85
-                }
+                },
+                img: '/img/1100-1200.png'
             },
             {
                 calories: "1400-1500",
@@ -53,7 +55,8 @@ const programmArr = [
                     protein: 105,
                     fats: 60,
                     car: 100
-                }
+                },
+                img: '/img/1400-1500.png'
             },
         ]
     },
@@ -75,7 +78,8 @@ const programmArr = [
                     protein: 105,
                     fats: 60,
                     car: 100
-                }
+                },
+                img: '/img/1400-1500.png'
             },
             {
                 calories: "1600-1700",
@@ -89,7 +93,8 @@ const programmArr = [
                     protein: 120,
                     fats: 80,
                     car: 140
-                }
+                },
+                img: '/img/1600-1700.png'
             },
         ]
     },
@@ -146,7 +151,6 @@ export default function ForWomans() {
                                         subtext={item.subtext} 
                                         segmented={item.segmented}
                                         data={item.data}
-                                        // price={item.data}
                                         />,
                                 }
                             })}
