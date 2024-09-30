@@ -93,10 +93,7 @@ const programmArr = [
             },
         ]
     },
-    // {
-    //     programm: "Набор",
-    //     segmented: ["1800-1900"]
-    // }
+
 ]
 
 
@@ -149,6 +146,7 @@ export default function ForWomans() {
                                         subtext={item.subtext} 
                                         segmented={item.segmented}
                                         data={item.data}
+                                        // price={item.data}
                                         />,
                                 }
                             })}

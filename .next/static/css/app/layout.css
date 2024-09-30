@@ -547,14 +547,38 @@ video {
 .w-\[700px\] {
   width: 700px;
 }
+.w-\[400px\] {
+  width: 400px;
+}
+.w-\[50px\] {
+  width: 50px;
+}
+.w-\[150px\] {
+  width: 150px;
+}
+.w-\[120px\] {
+  width: 120px;
+}
+.w-\[130px\] {
+  width: 130px;
+}
+.w-\[140px\] {
+  width: 140px;
+}
 .flex-1 {
   flex: 1 1 0%;
 }
 .transform {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
+.cursor-pointer {
+  cursor: pointer;
+}
 .flex-col {
   flex-direction: column;
+}
+.flex-wrap {
+  flex-wrap: wrap;
 }
 .items-center {
   align-items: center;
@@ -573,6 +597,9 @@ video {
 }
 .gap-\[5px\] {
   gap: 5px;
+}
+.gap-\[30px\] {
+  gap: 30px;
 }
 .rounded-\[50\%\] {
   border-radius: 50%;
@@ -601,6 +628,10 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
+.bg-\[\#fff\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
 .object-cover {
   object-fit: cover;
 }
@@ -609,6 +640,9 @@ video {
 }
 .p-\[30px\] {
   padding: 30px;
+}
+.p-\[10px\] {
+  padding: 10px;
 }
 .pb-\[50px\] {
   padding-bottom: 50px;
@@ -622,8 +656,17 @@ video {
 .text-center {
   text-align: center;
 }
+.text-\[\.75rem\] {
+  font-size: .75rem;
+}
+.text-\[\.88313rem\] {
+  font-size: .88313rem;
+}
 .text-\[18px\] {
   font-size: 18px;
+}
+.text-\[1rem\] {
+  font-size: 1rem;
 }
 .text-\[20px\] {
   font-size: 20px;
@@ -639,15 +682,6 @@ video {
 }
 .text-\[50px\] {
   font-size: 50px;
-}
-.text-\[1rem\] {
-  font-size: 1rem;
-}
-.text-\[\.88313rem\] {
-  font-size: .88313rem;
-}
-.text-\[\.75rem\] {
-  font-size: .75rem;
 }
 .font-bold {
   font-weight: 700;
@@ -677,6 +711,11 @@ video {
 }
 .opacity-\[0\.7\] {
   opacity: 0.7;
+}
+.shadow-md {
+  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 .transition {
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;

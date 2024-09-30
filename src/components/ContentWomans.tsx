@@ -1,5 +1,5 @@
 
-import { ConfigProvider, Flex, Segmented } from "antd"
+import { Button, ConfigProvider, Flex, Segmented } from "antd"
 import { useState } from "react"
 
 const ContentWomans: React.FC = ({text, subtext, segmented, data}) => {
@@ -16,7 +16,15 @@ const ContentWomans: React.FC = ({text, subtext, segmented, data}) => {
                         itemSelectedColor: "#fff",
                     },
                     Button: {
-                        
+                        // colorPrimary: "#fff",
+                        // colorPrimaryActive: "#48b03a",
+                        // colorPrimaryHover: "#48b03a",
+                        // colorPrimaryTextActive: "#fff",
+                        // textTextColor: "#000",
+                        // colorLinkHover: "$f9f9f9",
+                        // fontSize: 16,
+                        // borderRadius: 0,
+                        // controlHeight: 70
                     }
                 },
             }}
@@ -74,7 +82,35 @@ const ContentWomans: React.FC = ({text, subtext, segmented, data}) => {
                 </div>
                 <div className="p-[30px] bg-[#f9f9f9] border-solid border-[1px] border-[#e6e6e6] flex-1">
                     <h1 className="text-[20px] font-medium">выберите продолжительность</h1>
-
+                    {
+                        data.map((item: any, i: number) => {
+                            if (item.calories === segmentedValue){
+                                return (
+                                    <div className="mt-[20px]">
+                                        <div className="flex  gap-[20px] w-[400px] flex-wrap">
+                                            <div className="flex flex-colcursor-pointershadow-mdbg-[#fff]w-[140px] p-[10px]">
+                                                <p className="font-bold">1 день</p>
+                                                <p>{item.price.one} / день</p>
+                                            </div>
+                                            <div className="flex flex-col cursor-pointer shadow-md bg-[#fff] w-[140px] p-[10px]">
+                                                <p className="font-bold">7 дней</p>
+                                                <p>{item.price.seven} / день</p>
+                                            </div>
+                                            <div className="flex flex-col cursor-pointer shadow-md bg-[#fff] w-[140px] p-[10px]">
+                                                <p className="font-bold">14 дней</p>
+                                                <p>{item.price.fourteen} / день</p>
+                                            </div>
+                                            <div className="flex flex-col cursor-pointer shadow-md bg-[#fff] w-[140px] p-[10px]">
+                                                <p className="font-bold">30 дней</p>
+                                                <p>{item.price.thirty} / день</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )
+                            }
+                            
+                        })
+                    }
                 </div>
             </Flex>
         </ConfigProvider>
