@@ -49,7 +49,7 @@ const Company: React.FC = () => {
                     },
             }}
         >
-            <div className="mt-[50px] flex justify-between items-center gap-[50px]">
+            <div className="mt-[50px] flex justify-between items-center gap-[50px] xs:flex-col">
                 <div className="flex flex-col">
                     <div className=" w-[250px] h-[250px]">
                         <img src="/img/dir.JPG" className="w-[100%] h-[100%] rounded-[50%] object-cover" alt="Evgenia"/>
@@ -57,8 +57,8 @@ const Company: React.FC = () => {
                     <h1 className="mt-[10px] text-[22px] text-[#000] font-bold text-center">Евгения Грушецкая</h1>
                     <h2 className="mt-[5px] text-[20px] text-[#000] text-center">Основатель компании</h2>
                 </div>
-                <div className="w-[700px]">
-                    <p className="text-[20px]">
+                <div className="w-[700px] xs:w-[350px]">
+                    <p className="text-[20px] text-center">
                         "Уже более 4 лет мы занимаемся приготовлением и доставкой рационов здорового питания в Сочи. 
                         Наша основная цель - развеять миф о том, что правильное питание - это невкусно и однообразно.
                         Мы сможем сэкономить Ваше время и силы, а Вы уделите больше внимания тому, что поистине для Вас важно"
