@@ -1,9 +1,9 @@
 {
   "pages": {
-    "/page": [
+    "/for-mans/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/page.js"
+      "static/chunks/app/for-mans/page.js"
     ],
     "/layout": [
       "static/chunks/webpack.js",
@@ -16,10 +16,10 @@
       "static/chunks/main-app.js",
       "static/chunks/app/for-womans/page.js"
     ],
-    "/_not-found/page": [
+    "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/_not-found/page.js"
+      "static/chunks/app/page.js"
     ]
   }
 }
