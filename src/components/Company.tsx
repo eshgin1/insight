@@ -57,7 +57,7 @@ const Company: React.FC = () => {
                     <h1 className="mt-[10px] text-[22px] text-[#000] font-bold text-center">Евгения Грушецкая</h1>
                     <h2 className="mt-[5px] text-[20px] text-[#000] text-center">Основатель компании</h2>
                 </div>
-                <div className="w-[700px] xs:w-[350px] lg:w-[700px] xl:w-[500px] xl:ml-[40px] 2xl:w-[800px]">
+                <div className="w-[700px] xs:w-[350px] lg:w-[700px] xl:w-[500px] xl:ml-[40px] 2xl:w-[700px]">
                     <p className="text-[20px] text-center xl:text-start">
                         "Уже более 4 лет мы занимаемся приготовлением и доставкой рационов здорового питания в Сочи. 
                         Наша основная цель - развеять миф о том, что правильное питание - это невкусно и однообразно.

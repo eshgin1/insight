@@ -53,7 +53,7 @@ const ContentWomans: React.FC = ({text, subtext, segmented, data}) => {
                     },
                 }}
             >
-                <Flex vertical={false} className="">
+                <Flex vertical={false} className="xs:flex xs:flex-col lg:flex-row">
                     <div className="p-[30px] bg-[#f9f9f9] border-solid border-[1px] border-[#e6e6e6] flex-1">
                         <h1 className="text-[20px] font-medium">выберите калорийность</h1>
                         <Segmented 
@@ -72,7 +72,7 @@ const ContentWomans: React.FC = ({text, subtext, segmented, data}) => {
                         </div>
                     </div>
                     <div className="p-[30px] bg-[#f9f9f9] border-solid border-[1px] border-[#e6e6e6] flex-1">
-                        <h1 className="text-[20px] font-medium">примерное меню</h1>
+                        <h1 className="text-[20px] font-medium md:text-center">примерное меню</h1>
                         {
                             data.map((item: any, i: number) => {
                                 if (item.calories === segmentedValue){
@@ -86,12 +86,12 @@ const ContentWomans: React.FC = ({text, subtext, segmented, data}) => {
                         }
                         
                         <div className="mt-[20px]">
-                            <h3 className="text-[#adadad] text-[1rem]">В среднем за день</h3>
+                            <h3 className="text-[#adadad] text-[1rem] md:text-center">В среднем за день</h3>
                             {
                                 data.map((item: any, i: number) => {
                                     if (item.calories === segmentedValue){
                                         return (
-                                            <div key={i} className="flex gap-[20px]">
+                                            <div key={i} className="flex gap-[20px] md:justify-center">
                                                 <div className="mt-[10px] flex flex-col">
                                                     <p className="text-[#adadad] text-[.75rem]">Белки</p>
                                                     <p className="text-[.88313rem] ">{item.bju.protein}</p>
@@ -114,26 +114,26 @@ const ContentWomans: React.FC = ({text, subtext, segmented, data}) => {
                         </div>
                     </div>
                     <div className="p-[30px] bg-[#f9f9f9] border-solid border-[1px] border-[#e6e6e6] flex-1">
-                        <h1 className="text-[20px] font-medium">выберите продолжительность</h1>
+                        <h1 className="text-[20px] font-medium md:text-center">выберите продолжительность</h1>
                         {
                             data.map((item: any, i: number) => {
                                 if (item.calories === segmentedValue){
                                     return (
-                                        <div key={i} className="mt-[20px]">
-                                            <div className="flex  gap-[20px] w-[400px] flex-wrap">
-                                                <div onClick={() => setActiveButton(1)} className={activeButton === 1 ? "flex flex-col cursor-pointer shadow-md bg-[#48b03a] text-[#fff] w-[140px] p-[10px]" : "flex flex-col cursor-pointer shadow-md bg-[#fff] w-[140px] p-[10px]"}>
+                                        <div key={i} className="mt-[20px] md:flex md:flex-col md:items-center">
+                                            <div className="flex gap-[20px] md:mx-auto md:justify-center md:w-[400px] flex-wrap xs:w-[315px] lg:w-[283px]">
+                                                <div onClick={() => setActiveButton(1)} className={activeButton === 1 ? "flex flex-col cursor-pointer shadow-md bg-[#48b03a] text-[#fff] lg:w-[118px] md:w-[140px] p-[10px] xs:w-[125px]" : "flex flex-col cursor-pointer shadow-md bg-[#fff] lg:w-[118px] md:w-[140px] p-[10px] xs:w-[125px]"}>
                                                     <p className="font-bold">1 день</p>
                                                     <p>{item.price.one} / день</p>
                                                 </div>
-                                                <div onClick={() => setActiveButton(7)} className={activeButton === 7 ? "flex flex-col cursor-pointer shadow-md bg-[#48b03a] text-[#fff] w-[140px] p-[10px]" : "flex flex-col cursor-pointer shadow-md bg-[#fff] w-[140px] p-[10px]"}>
+                                                <div onClick={() => setActiveButton(7)} className={activeButton === 7 ? "flex flex-col cursor-pointer shadow-md bg-[#48b03a] text-[#fff] lg:w-[118px] md:w-[140px] p-[10px] xs:w-[125px]" : "flex flex-col cursor-pointer shadow-md bg-[#fff] lg:w-[118px] md:w-[140px] p-[10px] xs:w-[125px]"}>
                                                     <p className="font-bold">7 дней</p>
                                                     <p>{item.price.seven} / день</p>
                                                 </div>
-                                                <div onClick={() => setActiveButton(14)} className={activeButton === 14 ? "flex flex-col cursor-pointer shadow-md bg-[#48b03a] text-[#fff] w-[140px] p-[10px]" : "flex flex-col cursor-pointer shadow-md bg-[#fff] w-[140px] p-[10px]"}>
+                                                <div onClick={() => setActiveButton(14)} className={activeButton === 14 ? "flex flex-col cursor-pointer shadow-md bg-[#48b03a] text-[#fff] lg:w-[118px] md:w-[140px] p-[10px] xs:w-[125px]" : "flex flex-col cursor-pointer shadow-md bg-[#fff] lg:w-[118px] md:w-[140px] p-[10px] xs:w-[125px]"}>
                                                     <p className="font-bold">14 дней</p>
                                                     <p>{item.price.fourteen} / день</p>
                                                 </div>
-                                                <div onClick={() => setActiveButton(30)} className={activeButton === 30 ? "flex flex-col cursor-pointer shadow-md bg-[#48b03a] text-[#fff] w-[140px] p-[10px]" : "flex flex-col cursor-pointer shadow-md bg-[#fff] w-[140px] p-[10px]"}>
+                                                <div onClick={() => setActiveButton(30)} className={activeButton === 30 ? "flex flex-col cursor-pointer shadow-md bg-[#48b03a] text-[#fff] lg:w-[118px] md:w-[140px] p-[10px] xs:w-[125px]" : "flex flex-col cursor-pointer shadow-md bg-[#fff] lg:w-[118px] md:w-[140px] p-[10px] xs:w-[125px]"}>
                                                     <p className="font-bold">30 дней</p>
                                                     <p>{item.price.thirty} / день</p>
                                                 </div>

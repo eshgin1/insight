@@ -10,7 +10,7 @@ const Category: React.FC = () => {
         <div className="mt-[50px] flex justify-between xs:flex-col xs:justify-center xs:gap-[30px] xl:flex-row">
             <Link href="/for-womans" className="xs:mx-auto">
                 <Card
-                    className="hover:scale-[1.01] transition-transform duration-300 xs:w-[350px] md:w-[450px] xl:w-[330px] 2xl:w-[400px]" 
+                    className="hover:scale-[1.01] transition-transform duration-300 xs:w-[350px] md:w-[450px] xl:w-[330px] 2xl:w-[380px]" 
                     hoverable
                     style={{  transform: "transition: all 0.3s" }}
                     cover={<img alt="example" className="h-[500px]  object-cover xs:h-[400px] md:h-[500px] xl:h-[400px] 2xl:h-[450px]" src="/img/woman.PNG"/>}
@@ -23,7 +23,7 @@ const Category: React.FC = () => {
             </Link>
             <Link href="/for-mans" className="xs:mx-auto">
                 <Card
-                    className="hover:scale-[1.01] transition-transform duration-300 xs:w-[350px] md:w-[450px] xl:w-[330px] 2xl:w-[400px]" 
+                    className="hover:scale-[1.01] transition-transform duration-300 xs:w-[350px] md:w-[450px] xl:w-[330px] 2xl:w-[380px]" 
                     hoverable
                     style={{ transform: "transition: all 0.3s" }}
                     cover={<img alt="example" className="h-[500px]  object-cover xs:h-[400px] md:h-[500px] xl:h-[400px] 2xl:h-[450px]" src="/img/man.JPG" />}
@@ -36,7 +36,7 @@ const Category: React.FC = () => {
             </Link>
             <Link href="/no-milk" className="xs:mx-auto">
                 <Card
-                    className="hover:scale-[1.01] transition-transform duration-300 xs:w-[350px] md:w-[450px] xl:w-[330px] 2xl:w-[400px]" 
+                    className="hover:scale-[1.01] transition-transform duration-300 xs:w-[350px] md:w-[450px] xl:w-[330px] 2xl:w-[380px]" 
                     hoverable
                     style={{ transform: "transition: all 0.3s" }}
                     cover={<img alt="example" className="h-[500px]  object-cover xs:h-[400px] md:h-[500px] xl:h-[400px] 2xl:h-[450px]" src="/img/nomilk.JPG"  />}
