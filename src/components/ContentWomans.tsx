@@ -3,8 +3,13 @@ import { onSumbitOrder } from "@/utils/onSumbitOrder";
 import { Button, ConfigProvider, Flex, Modal, Segmented, Input } from "antd"
 import { useState } from "react"
 
-
-const ContentWomans: React.FC = ({text, subtext, segmented, data}) => {
+interface ContentWomans {
+    text: string;
+    subtext: string;
+    segmented: string[];
+    data: any; // Замените any на более конкретный тип, если знаете
+}
+const ContentWomans: React.FC<ContentWomans> = ({text, subtext, segmented, data}) => {
     const [activeButton, setActiveButton] = useState(1)
     const [segmentedValue, setSegmentedValue] = useState(segmented[0]);
     
@@ -55,7 +60,7 @@ const ContentWomans: React.FC = ({text, subtext, segmented, data}) => {
             >
                 <Flex vertical={false} className="xs:flex xs:flex-col lg:flex-row">
                     <div className="p-[30px] bg-[#f9f9f9] border-solid border-[1px] border-[#e6e6e6] flex-1">
-                        <h1 className="text-[20px] font-medium">выберите калорийность</h1>
+                        <h1 className="text-[20px] font-medium">выберите калорийность:</h1>
                         <Segmented 
                             className="mt-[20px]"
                             options={segmented}

@@ -728,6 +728,9 @@ video {
 .text-\[50px\] {
   font-size: 50px;
 }
+.font-\[300\] {
+  font-weight: 300;
+}
 .font-bold {
   font-weight: 700;
 }
@@ -842,6 +845,10 @@ body {
     height: 400px;
   }
 
+  .xs\:h-\[54\%\] {
+    height: 54%;
+  }
+
   .xs\:w-\[125px\] {
     width: 125px;
   }
@@ -918,6 +925,10 @@ body {
 
   .md\:h-\[500px\] {
     height: 500px;
+  }
+
+  .md\:h-\[70\%\] {
+    height: 70%;
   }
 
   .md\:w-\[140px\] {

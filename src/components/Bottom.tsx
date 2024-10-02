@@ -13,13 +13,13 @@ const Bottom: React.FC = () => {
             <div>
                 <div className="flex justify-between lg:justify-end lg:gap-[25px]">
                     <ul className="flex flex-col gap-[20px]">
-                        <li className="text-[22px]">
+                        <li className="text-[20px] font-[300]">
                             <Link href="/for-mans">Для парней</Link>
                         </li>
-                        <li className="text-[22px]">
+                        <li className="text-[20px] font-[300]">
                             <Link href="/for-womans">Для девушек</Link>
                         </li>
-                        <li className="text-[22px]">
+                        <li className="text-[20px] font-[300]">
                             <Link href="/no-milk">Без глютена и молока</Link>
                         </li>
                     </ul>

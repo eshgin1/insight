@@ -18,19 +18,19 @@ const Top: React.FC = () => {
                     <a href="tel:+79528278833" className="text-[20px] text-[#48b03a] hover:text-[#48b03a] xl:ml-[200px]">8-(952)-827-88-33</a>
                 </div>
                 <ul className="flex gap-[20px]">
-                    <li className="md:text-[22px] leading-5">
+                    <li className="md:text-[22px] leading-5 text-[20px] font-[300]">
                     <Link href="/for-mans">Для парней</Link>
                     </li>
-                    <li className="md:text-[22px] leading-5">
+                    <li className="md:text-[22px] leading-5 text-[20px] font-[300]">
                     <Link href="/for-womans">Для девушек</Link>
                     </li>
-                    <li className="md:text-[22px] leading-5">
+                    <li className="md:text-[22px] leading-5 text-[20px] font-[300]">
                     <Link href="/no-milk">Без глютена и молока</Link>
                     </li>
                 </ul>
             </nav>
             <div className="burger fixed left-0  w-full z-10 lg:hidden">
-                <div onClick={() => setIsOpen(!isOpen)} className="absolute right-[20px] top-[20px] flex flex-col gap-[7px]">
+                <div onClick={() => setIsOpen(!isOpen)} className="absolute right-[20px] top-[20px] flex flex-col gap-[7px] cursor-pointer">
                     <div className=" w-[40px] h-[5px] bg-[#000]"></div>
                     <div className=" w-[40px] h-[5px] bg-[#000]"></div>
                     <div className=" w-[40px] h-[5px] bg-[#000]"></div>
