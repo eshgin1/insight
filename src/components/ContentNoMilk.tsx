@@ -1,5 +1,5 @@
 import { onSumbitOrder } from "@/utils/onSumbitOrder";
-import { Button, ConfigProvider, Flex, Modal, Segmented, Input } from "antd"
+import { Button, ConfigProvider, Flex, Modal, Segmented, Input, message } from "antd"
 import { useState } from "react"
 
 interface ContentNoMilkProps {
@@ -17,6 +17,7 @@ const ContentNoMilk: React.FC<ContentNoMilkProps> = ({text, subtext, segmented, 
     const [name, setName] = useState("");
     const [phone, setPhone] = useState("");
 
+    const [messageApi, contextHolder] = message.useMessage()    
     const getPhone = (event: any) => {
         const inputValue = event.target.value;
 
@@ -30,7 +31,7 @@ const ContentNoMilk: React.FC<ContentNoMilkProps> = ({text, subtext, segmented, 
       };
     
       const handleOk = (event: any) => {
-        onSumbitOrder(event, name, phone, segmentedValue ,activeButton, setName, setPhone, "Без глютена и молока");    
+        onSumbitOrder(event, name, phone, segmentedValue ,activeButton, setName, setPhone, "Без глютена и молока", messageApi);    
         setIsModalOpen(false);
       };
     
@@ -54,6 +55,10 @@ const ContentNoMilk: React.FC<ContentNoMilkProps> = ({text, subtext, segmented, 
                             colorText: "#fff",
                             colorPrimaryActive: "#fff",
                             colorPrimaryHover: "#fff",
+                        },
+                        Input: {
+                            activeBorderColor: "#48b03a",
+                            hoverBorderColor: "#48b03a"
                         }
                     },
                 }}
@@ -137,12 +142,13 @@ const ContentNoMilk: React.FC<ContentNoMilkProps> = ({text, subtext, segmented, 
 
             <Modal title="Сделать заказ" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
                             
-            <p className="mt-[5px]">Как Вас зовут?</p>
-            <Input placeholder="Ваше имя" value={name} onChange={(e) => setName(e.target.value)}/>
-            <p className="mt-[5px]">Номер телефона</p>
-            <Input placeholder="Ваш номер телефона" value={phone} maxLength={11} onChange={(e) => getPhone(e)}/>
+                <p className="mt-[5px]">Как Вас зовут?</p>
+                <Input placeholder="Ваше имя" value={name} onChange={(e) => setName(e.target.value)}/>
+                <p className="mt-[5px]">Номер телефона</p>
+                <Input placeholder="Ваш номер телефона" value={phone} maxLength={11} onChange={(e) => getPhone(e)}/>
 
             </Modal>
+            {contextHolder}
         </>
     )
 }

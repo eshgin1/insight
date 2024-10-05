@@ -19,13 +19,13 @@ const Top: React.FC = () => {
                 </div>
                 <ul className="flex gap-[20px]">
                     <li className="md:text-[22px] leading-5 text-[20px] font-[300]">
-                    <Link href="/for-mans">Для парней</Link>
+                    <Link href="/for-mans" className="hover:text-[#48b03a] duration-0">Для парней</Link>
                     </li>
                     <li className="md:text-[22px] leading-5 text-[20px] font-[300]">
-                    <Link href="/for-womans">Для девушек</Link>
+                    <Link href="/for-womans" className="hover:text-[#48b03a] duration-0">Для девушек</Link>
                     </li>
                     <li className="md:text-[22px] leading-5 text-[20px] font-[300]">
-                    <Link href="/no-milk">Без глютена и молока</Link>
+                    <Link href="/no-milk" className="hover:text-[#48b03a] duration-0">Без глютена и молока</Link>
                     </li>
                 </ul>
             </nav>

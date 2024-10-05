@@ -13,20 +13,20 @@ const Bottom: React.FC = () => {
             <div>
                 <div className="flex justify-between lg:justify-end lg:gap-[25px]">
                     <ul className="flex flex-col gap-[20px]">
-                        <li className="text-[20px] xs:leading-7 sm:leading-3 font-[300]">
-                            <Link href="/for-mans">Для парней</Link>
+                        <li className="text-[20px] xs:leading-7 sm:leading-3 font-[300] ">
+                            <Link href="/for-mans" className="hover:text-[#48b03a] duration-0">Для парней</Link>
                         </li>
                         <li className="text-[20px] xs:leading-7 sm:leading-3 font-[300]">
-                            <Link href="/for-womans">Для девушек</Link>
+                            <Link href="/for-womans" className="hover:text-[#48b03a] duration-0">Для девушек</Link>
                         </li>
                         <li className="text-[20px] xs:leading-7 sm:leading-3 font-[300]">
-                            <Link href="/no-milk">Без глютена и молока</Link>
+                            <Link href="/no-milk" className="hover:text-[#48b03a] duration-0">Без глютена и молока</Link>
                         </li>
                         
                     </ul>
                     <ul className="flex flex-col gap-[20px]">
                         <li className="text-[20px] xs:leading-7 sm:leading-3 font-[300]">
-                            <Link href="/delivery">Доставка и оплата</Link>
+                            <Link href="/delivery" className="hover:text-[#48b03a] duration-0">Доставка и оплата</Link>
                         </li>
                     </ul>
                     <ul className="flex flex-col gap-[5px]">

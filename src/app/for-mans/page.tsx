@@ -169,7 +169,7 @@ export default function ForMans() {
                                         subtext={item.subtext} 
                                         segmented={item.segmented}
                                         data={item.data}
-                                        />,
+                                    />,
                                 }
                             })}
                         />

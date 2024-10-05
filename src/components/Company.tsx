@@ -1,14 +1,15 @@
 "use client"
-import { useEffect, useState } from "react"
-import { Button, ConfigProvider, Input, Modal } from "antd"
-import { on } from "events";
+import { useState } from "react"
+import { Button, ConfigProvider, Input, Modal, message } from "antd"
 import { onSumbitMessage } from "@/utils/onSumbitMessage";
 
 const Company: React.FC = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [name, setName] = useState("");
     const [phone, setPhone] = useState("");
-    const [message, setMessage] = useState("");
+    const [messageText, setMessageText] = useState("");
+
+    const [messageApi, contextHolder] = message.useMessage()    
 
     const getPhone = (event: any) => {
         const inputValue = event.target.value;
@@ -24,7 +25,7 @@ const Company: React.FC = () => {
     };
   
     const handleOk = (event: any) => {
-      onSumbitMessage(event, name, phone, message, setName, setMessage, setPhone);    
+      onSumbitMessage(event, name, phone, messageText, setName, setMessageText, setPhone, messageApi);    
       setIsModalOpen(false);
     };
   
@@ -32,7 +33,7 @@ const Company: React.FC = () => {
       setIsModalOpen(false);
       setName("");
       setPhone("");
-      setMessage("");
+      setMessageText("");
     };
 
     return (
@@ -40,13 +41,18 @@ const Company: React.FC = () => {
             theme={{
                 components: {
                     Button: {
-                            defaultBg: "#48b03a",
-                            defaultColor: "#fff",
-                            defaultHoverBg: "#48b03a",
-                            defaultHoverColor: "#fff",
-                            defaultHoverBorderColor: "#f9f9f9"
-                        },
+                        defaultBg: "#48b03a",
+                        defaultColor: "#fff",
+                        defaultHoverBg: "#48b03a",
+                        defaultHoverColor: "#fff",
+                        defaultHoverBorderColor: "#f9f9f9"
                     },
+                    Input: {
+                        activeBorderColor: "#48b03a",
+                        hoverBorderColor: "#48b03a"
+                    }
+                },
+                    
             }}
         >
             <div className="mt-[50px] flex justify-between items-center gap-[50px] xs:flex-col lg:flex-row lg:p-[20px] lg:flex-wrap lg:gap-[20px] xl:flex-nowrap xl:p-[30px]">
@@ -55,10 +61,10 @@ const Company: React.FC = () => {
                         <img src="/img/dir.JPG" className="w-[100%] h-[100%] rounded-[50%] object-cover" alt="Evgenia"/>
                     </div>
                     <h1 className="mt-[10px] text-[22px] text-[#000] font-bold text-center">Евгения Грушецкая</h1>
-                    <h2 className="mt-[5px] text-[20px] text-[#000] text-center">Основатель компании</h2>
+                    <h2 className="mt-[5px] text-[20px] text-[#000] text-center font-[300]">Основатель компании</h2>
                 </div>
                 <div className="w-[700px] xs:w-[350px] lg:w-[700px] xl:w-[500px] xl:ml-[40px] 2xl:w-[700px]">
-                    <p className="text-[20px] text-center xl:text-start">
+                    <p className="text-[20px] text-center xl:text-start font-[300]">
                         "Уже более 4 лет мы занимаемся приготовлением и доставкой рационов здорового питания в Сочи. 
                         Наша основная цель - развеять миф о том, что правильное питание - это невкусно и однообразно.
                         Мы сможем сэкономить Ваше время и силы, а Вы уделите больше внимания тому, что поистине для Вас важно"
@@ -75,10 +81,10 @@ const Company: React.FC = () => {
                 <p className="mt-[5px]">Номер телефона</p>
                 <Input placeholder="Ваш номер телефона" value={phone} maxLength={11} onChange={(e) => getPhone(e)}/>
                 <p className="mt-[5px]">Какой у Вас вопрос?</p>
-                <Input.TextArea placeholder="Ваш вопрос" value={message} onChange={(e) => setMessage(e.target.value)}/>
+                <Input.TextArea placeholder="Ваш вопрос" value={messageText} onChange={(e) => setMessageText(e.target.value)}/>
             </Modal>
+            {contextHolder}
         </ConfigProvider>
-        
     )
 }
 
