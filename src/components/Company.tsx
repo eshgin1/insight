@@ -1,22 +1,52 @@
 "use client"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Button, ConfigProvider, Input, Modal, message } from "antd"
 import { onSumbitMessage } from "@/utils/onSumbitMessage";
 
 const Company: React.FC = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [name, setName] = useState("");
-    const [phone, setPhone] = useState("");
+    const [phone, setPhone] = useState("+7");
     const [messageText, setMessageText] = useState("");
+    const [err, setErr] = useState(false)
 
     const [messageApi, contextHolder] = message.useMessage()    
 
+
+    // useEffect(() => {
+        // setTimeout(() => {
+        //     setErr(false)
+        // }, 1000)
+    // },[err])
+
+    useEffect(() => {
+        if(name && name !== ""){
+            setErr(false)
+        }
+        if(phone.slice(2) && phone.slice(2) !== ""){
+            setErr(false)
+        }
+        if(messageText && messageText !== ""){
+            setErr(false)
+        }
+        if(!isModalOpen){
+            setErr(false)
+        }
+    }, [name, phone, messageText, isModalOpen])
+    
     const getPhone = (event: any) => {
         const inputValue = event.target.value;
 
-        const reg = /^-?\d*(\.\d*)?$/;
-        if (reg.test(inputValue) || inputValue === '' || inputValue === '-') {
-          setPhone(inputValue);
+        const reg = /^\d*$/
+
+        if(inputValue.startsWith("+7")){
+            
+            if (reg.test(inputValue.slice(2))) {
+                setPhone(inputValue);
+                
+            } else{
+                setErr(true)
+            }
         }
     }    
     
@@ -25,14 +55,48 @@ const Company: React.FC = () => {
     };
   
     const handleOk = (event: any) => {
-      onSumbitMessage(event, name, phone, messageText, setName, setMessageText, setPhone, messageApi);    
-      setIsModalOpen(false);
+        
+        // if(name && phone.slice(2) && messageText){
+        //     onSumbitMessage(event, name, phone, messageText, setName, setMessageText, setPhone, messageApi);    
+        //     setIsModalOpen(false);
+        // }else{
+
+        // }
+        let hasError = false;
+
+        // Проверяем каждое поле
+        if (!name) {
+            setErr(true);
+            hasError = true;
+        } else if (err) {
+            setErr(false); // Сбрасываем ошибку, если имя введено
+        }
+    
+        if (!phone.slice(2)) {
+            setErr(true);
+            hasError = true;
+        } else if (err) {
+            setErr(false); // Сбрасываем ошибку, если телефон введен
+        }
+    
+        if (!messageText) {
+            setErr(true);
+            hasError = true;
+        } else if (err) {
+            setErr(false); // Сбрасываем ошибку, если сообщение введено
+        }
+    
+        // Если ошибок нет, вызываем функцию отправки сообщения
+        if (!hasError) {
+            onSumbitMessage(event, name, phone, messageText, setName, setMessageText, setPhone, messageApi);    
+            setIsModalOpen(false);
+        }
     };
   
     const handleCancel = () => {
       setIsModalOpen(false);
       setName("");
-      setPhone("");
+      setPhone("+7");
       setMessageText("");
     };
 
@@ -52,7 +116,6 @@ const Company: React.FC = () => {
                         hoverBorderColor: "#48b03a"
                     }
                 },
-                    
             }}
         >
             <div className="mt-[50px] flex justify-between items-center gap-[50px] xs:flex-col lg:flex-row lg:p-[20px] lg:flex-wrap lg:gap-[20px] xl:flex-nowrap xl:p-[30px]">
@@ -77,11 +140,14 @@ const Company: React.FC = () => {
             </div>
             <Modal title="Оставьте заявку" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
                 <p className="mt-[5px]">Как Вас зовут?</p>
-                <Input placeholder="Ваше имя" value={name} onChange={(e) => setName(e.target.value)}/>
+                <Input status={err && !name ? "error" : ""} placeholder="Ваше имя" value={name} onChange={(e) => setName(e.target.value)}/>
                 <p className="mt-[5px]">Номер телефона</p>
-                <Input placeholder="Ваш номер телефона" value={phone} maxLength={11} onChange={(e) => getPhone(e)}/>
+                <Input status={err && !phone.slice(2) ? "error" : ""} value={phone} maxLength={12} onChange={(e) => getPhone(e)}/>
+                {/* {
+                    err ? (<p className="text-[red] transition-all duration-100">номер телефона должен состоять только из цифр</p>) : null
+                } */}
                 <p className="mt-[5px]">Какой у Вас вопрос?</p>
-                <Input.TextArea placeholder="Ваш вопрос" value={messageText} onChange={(e) => setMessageText(e.target.value)}/>
+                <Input.TextArea status={err && !messageText ? "error" : ""} placeholder="Ваш вопрос" value={messageText} onChange={(e) => setMessageText(e.target.value)}/>
             </Modal>
             {contextHolder}
         </ConfigProvider>

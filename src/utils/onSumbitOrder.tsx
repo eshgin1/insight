@@ -19,7 +19,7 @@ export  const onSumbitOrder = async (event: any, name: string, phone: string,seg
         });
         if(response.ok){
             setName('') 
-            setPhone('')
+            setPhone('+7')
             messageApi.open({
                 type: 'success',
                 content: 'Заказ успешно отправлен, мы скоро с Вами свяжемся',

@@ -1,6 +1,6 @@
 import { onSumbitOrder } from "@/utils/onSumbitOrder";
 import { Button, ConfigProvider, Flex, Modal, Segmented, Input, message } from "antd"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 interface ContentNoMilkProps {
     text: string;
@@ -15,15 +15,43 @@ const ContentNoMilk: React.FC<ContentNoMilkProps> = ({text, subtext, segmented, 
     
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [name, setName] = useState("");
-    const [phone, setPhone] = useState("");
+    const [phone, setPhone] = useState("+7");
+    const [err, setErr] = useState(false);
 
     const [messageApi, contextHolder] = message.useMessage()    
+
+    useEffect(() => {
+        if(name && name !== ""){
+            setErr(false)
+        }
+        if(phone.slice(2) && phone.slice(2) !== ""){
+            setErr(false)
+        }
+        if(!isModalOpen){
+            setErr(false)
+        }
+    }, [name, phone, isModalOpen])
+
     const getPhone = (event: any) => {
+        // const inputValue = event.target.value;
+
+        // const reg = /^-?\d*(\.\d*)?$/;
+        // if (reg.test(inputValue) || inputValue === '' || inputValue === '-') {
+        //   setPhone(inputValue);
+        // }
+
         const inputValue = event.target.value;
 
-        const reg = /^-?\d*(\.\d*)?$/;
-        if (reg.test(inputValue) || inputValue === '' || inputValue === '-') {
-          setPhone(inputValue);
+        const reg = /^\d*$/
+
+        if(inputValue.startsWith("+7")){
+            
+            if (reg.test(inputValue.slice(2))) {
+                setPhone(inputValue);
+                
+            } else{
+                setErr(true)
+            }
         }
     }  
     const showModal = () => {
@@ -31,14 +59,38 @@ const ContentNoMilk: React.FC<ContentNoMilkProps> = ({text, subtext, segmented, 
       };
     
       const handleOk = (event: any) => {
-        onSumbitOrder(event, name, phone, segmentedValue ,activeButton, setName, setPhone, "Без глютена и молока", messageApi);    
-        setIsModalOpen(false);
+        // onSumbitOrder(event, name, phone, segmentedValue ,activeButton, setName, setPhone, "Без глютена и молока", messageApi);    
+        // setIsModalOpen(false);
+
+
+        let hasError = false;
+
+        // Проверяем каждое поле
+        if (!name) {
+            setErr(true);
+            hasError = true;
+        } else if (err) {
+            setErr(false); // Сбрасываем ошибку, если имя введено
+        }
+    
+        if (!phone.slice(2)) {
+            setErr(true);
+            hasError = true;
+        } else if (err) {
+            setErr(false); // Сбрасываем ошибку, если телефон введен
+        }
+    
+        // Если ошибок нет, вызываем функцию отправки сообщения
+        if (!hasError) {
+            onSumbitOrder(event, name, phone, segmentedValue ,activeButton, setName, setPhone, "Девушка", messageApi);    
+            setIsModalOpen(false);
+        }
       };
     
       const handleCancel = () => {
         setIsModalOpen(false);
         setName("");
-        setPhone("");
+        setPhone("+7");
       };
 
     return (
@@ -143,9 +195,9 @@ const ContentNoMilk: React.FC<ContentNoMilkProps> = ({text, subtext, segmented, 
             <Modal title="Сделать заказ" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
                             
                 <p className="mt-[5px]">Как Вас зовут?</p>
-                <Input placeholder="Ваше имя" value={name} onChange={(e) => setName(e.target.value)}/>
+                <Input status={err && !name ? "error" : ""} placeholder="Ваше имя" value={name} onChange={(e) => setName(e.target.value)}/>
                 <p className="mt-[5px]">Номер телефона</p>
-                <Input placeholder="Ваш номер телефона" value={phone} maxLength={11} onChange={(e) => getPhone(e)}/>
+                <Input status={err && !phone.slice(2) ? "error" : ""} placeholder="Ваш номер телефона" value={phone} maxLength={12} onChange={(e) => getPhone(e)}/>
 
             </Modal>
             {contextHolder}

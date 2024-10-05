@@ -43,7 +43,7 @@ export  const onSumbitMessage = async (
     
             if(response.ok){
                 setName('') 
-                setPhone('')
+                setPhone('+7')
                 setMessage('')
                 messageApi.open({
                     type: 'success',
