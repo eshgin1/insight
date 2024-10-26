@@ -34,12 +34,6 @@ const ContentMans: React.FC<ContentMans> = ({text, subtext, segmented, data}) =>
         }
     }, [name, phone, isModalOpen])
     const getPhone = (event: any) => {
-        // const inputValue = event.target.value;
-
-        // const reg = /^-?\d*(\.\d*)?$/;
-        // if (reg.test(inputValue) || inputValue === '' || inputValue === '-') {
-        //   setPhone(inputValue);
-        // }
 
         const inputValue = event.target.value;
 
@@ -60,9 +54,6 @@ const ContentMans: React.FC<ContentMans> = ({text, subtext, segmented, data}) =>
       };
     
       const handleOk = (event: any) => {
-        // onSumbitOrder(event, name, phone, segmentedValue ,activeButton, setName, setPhone, "Парень", messageApi);    
-        // setIsModalOpen(false);
-
         let hasError = false;
 
         // Проверяем каждое поле
@@ -82,7 +73,7 @@ const ContentMans: React.FC<ContentMans> = ({text, subtext, segmented, data}) =>
     
         // Если ошибок нет, вызываем функцию отправки сообщения
         if (!hasError) {
-            onSumbitOrder(event, name, phone, segmentedValue ,activeButton, setName, setPhone, "Девушка", messageApi);    
+            onSumbitOrder(event, name, phone, segmentedValue ,activeButton, setName, setPhone, "Парень", messageApi);    
             setIsModalOpen(false);
         }
       };

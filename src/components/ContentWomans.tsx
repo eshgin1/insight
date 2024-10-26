@@ -33,12 +33,7 @@ const ContentWomans: React.FC<ContentWomans> = ({text, subtext, segmented, data}
     }, [name, phone, isModalOpen])
 
     const getPhone = (event: any) => {
-        // const inputValue = event.target.value;
 
-        // const reg = /^-?\d*(\.\d*)?$/;
-        // if (reg.test(inputValue) || inputValue === '' || inputValue === '-') {
-        //   setPhone(inputValue);
-        // }
         const inputValue = event.target.value;
 
         const reg = /^\d*$/
@@ -58,9 +53,6 @@ const ContentWomans: React.FC<ContentWomans> = ({text, subtext, segmented, data}
       };
     
       const handleOk = (event: any) => {
-        // onSumbitOrder(event, name, phone, segmentedValue ,activeButton, setName, setPhone, "Девушка", messageApi);    
-        // setIsModalOpen(false);
-
 
         let hasError = false;
 

@@ -7,6 +7,7 @@ import Company from "@/components/Company";
 import { useState } from "react";
 import Top from "@/components/Top";
 import Bottom from "@/components/Bottom";
+import Description from "@/components/Description";
 
 const { Header, Footer, Sider, Content } = Layout;
 
@@ -23,6 +24,7 @@ export default function Home() {
             </div>
             <Category/>
             <Company/>
+            <Description/>
         </Content>
         <Bottom/>
       </Layout>
