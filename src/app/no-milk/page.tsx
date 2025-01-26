@@ -18,10 +18,10 @@ const programmArr = [
             {
                 calories: "1200-1400",
                 price: {
-                    one: "2 200",
-                    seven: "15 050",
-                    fourteen: "29 400",
-                    thirty: "60 000"
+                    one: {day: "2 300", total: "2 300"},
+                    seven: {day: "2 250", total: "15 750"},
+                    fourteen: {day: "2 200", total: "30 800"},
+                    thirty: {day: "2 100", total: "63 000"}
                 },
                 bju: {
                     protein: 80,

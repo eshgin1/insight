@@ -12,35 +12,19 @@ export  const onSumbitMessage = async (
     setPhone:any, 
     messageApi: any
     ) => {
-    
         event.preventDefault()
-
-    
         const text = `Консультация: \n Имя: ${name},\n Номер телефона: ${phone},\n Cообщение: ${message}`
-    
         try {
-    
             const response = await fetch(API, {
-    
                 method: 'POST',
-    
                 headers: {
-    
                     'Content-Type': 'application/json;charset=utf-8'
-    
                 },
-    
                 body: JSON.stringify({
-    
-    
                     chat_id: TELEGRAM_CHAT_ID,
-    
                     text,
-    
                 })
-    
             });
-    
             if(response.ok){
                 setName('') 
                 setPhone('+7')
@@ -49,13 +33,8 @@ export  const onSumbitMessage = async (
                     type: 'success',
                     content: "Спасибо за заявку, мы скоро с Вами свяжемся"
                 })
-            }else{
-                console.log('+')
             }
-
         } catch (error) {
             console.log('-')
-        } finally{
-
         }
 }

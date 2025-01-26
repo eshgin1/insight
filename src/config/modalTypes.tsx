@@ -1,0 +1,3 @@
+export const MODAL_CALL_BACK = 'MODAL_CALL_BACK'
+export const MODAL_COMPANY = 'MODAL_COMPANY'
+export const MODAL_ORDER = 'MODAL_ORDER'
