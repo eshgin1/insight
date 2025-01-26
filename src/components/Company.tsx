@@ -1,103 +1,15 @@
 "use client"
-import { useEffect, useState } from "react"
-import { Button, ConfigProvider, Input, Modal, message } from "antd"
-import { onSumbitMessage } from "@/utils/onSumbitMessage";
+
+import { Button, ConfigProvider} from "antd"
+import { MODAL_COMPANY } from "@/config/modalTypes";
+import { useDispatch } from "react-redux";
+import { openModal} from "@/redux/slices/modalSlices";
 
 const Company: React.FC = () => {
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [name, setName] = useState("");
-    const [phone, setPhone] = useState("+7");
-    const [messageText, setMessageText] = useState("");
-    const [err, setErr] = useState(false)
+    const dispatch = useDispatch()
 
-    const [messageApi, contextHolder] = message.useMessage()    
-
-
-    // useEffect(() => {
-        // setTimeout(() => {
-        //     setErr(false)
-        // }, 1000)
-    // },[err])
-
-    useEffect(() => {
-        if(name && name !== ""){
-            setErr(false)
-        }
-        if(phone.slice(2) && phone.slice(2) !== ""){
-            setErr(false)
-        }
-        if(messageText && messageText !== ""){
-            setErr(false)
-        }
-        if(!isModalOpen){
-            setErr(false)
-        }
-    }, [name, phone, messageText, isModalOpen])
-    
-    const getPhone = (event: any) => {
-        const inputValue = event.target.value;
-
-        const reg = /^\d*$/
-
-        if(inputValue.startsWith("+7")){
-            
-            if (reg.test(inputValue.slice(2))) {
-                setPhone(inputValue);
-                
-            } else{
-                setErr(true)
-            }
-        }
-    }    
-    
     const showModal = () => {
-      setIsModalOpen(true);
-    };
-  
-    const handleOk = (event: any) => {
-        
-        // if(name && phone.slice(2) && messageText){
-        //     onSumbitMessage(event, name, phone, messageText, setName, setMessageText, setPhone, messageApi);    
-        //     setIsModalOpen(false);
-        // }else{
-
-        // }
-        let hasError = false;
-
-        // Проверяем каждое поле
-        if (!name) {
-            setErr(true);
-            hasError = true;
-        } else if (err) {
-            setErr(false); // Сбрасываем ошибку, если имя введено
-        }
-    
-        if (!phone.slice(2)) {
-            setErr(true);
-            hasError = true;
-        } else if (err) {
-            setErr(false); // Сбрасываем ошибку, если телефон введен
-        }
-    
-        if (!messageText) {
-            setErr(true);
-            hasError = true;
-        } else if (err) {
-            setErr(false); // Сбрасываем ошибку, если сообщение введено
-        }
-    
-        // Если ошибок нет, вызываем функцию отправки сообщения
-        if (!hasError) {
-            onSumbitMessage(event, name, phone, messageText, setName, setMessageText, setPhone, messageApi);    
-            setIsModalOpen(false);
-        }
-    };
-  
-    const handleCancel = () => {
-      setIsModalOpen(false);
-      setName("");
-      setPhone("+7");
-      setMessageText("");
+        dispatch(openModal(MODAL_COMPANY))
     };
 
     return (
@@ -138,18 +50,6 @@ const Company: React.FC = () => {
                     <Button className="p-[20px] mt-[20px] hover:opacity-[0.95]" onClick={showModal}>Отправить заявку на консультацию</Button>
                 </div>
             </div>
-            <Modal title="Оставьте заявку" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-                <p className="mt-[5px]">Как Вас зовут?</p>
-                <Input status={err && !name ? "error" : ""} placeholder="Ваше имя" value={name} onChange={(e) => setName(e.target.value)}/>
-                <p className="mt-[5px]">Номер телефона</p>
-                <Input status={err && !phone.slice(2) ? "error" : ""} value={phone} maxLength={12} onChange={(e) => getPhone(e)}/>
-                {/* {
-                    err ? (<p className="text-[red] transition-all duration-100">номер телефона должен состоять только из цифр</p>) : null
-                } */}
-                <p className="mt-[5px]">Какой у Вас вопрос?</p>
-                <Input.TextArea status={err && !messageText ? "error" : ""} placeholder="Ваш вопрос" value={messageText} onChange={(e) => setMessageText(e.target.value)}/>
-            </Modal>
-            {contextHolder}
         </ConfigProvider>
     )
 }

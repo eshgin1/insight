@@ -30,7 +30,7 @@ const Bottom: React.FC = () => {
                         </li>
                     </ul>
                     <ul className="flex flex-col gap-[5px]">
-                        <a target="_blank" href="https://t.me/insight_food_sochi">
+                        <a  href="https://t.me/insight_food_sochi">
                             <img src=" /icons/телеграмма.svg" alt="telegram" />
                         </a>
                         <a target="_blank" href="https://www.instagram.com/insighte.food">
@@ -41,7 +41,7 @@ const Bottom: React.FC = () => {
                         </a>
                     </ul>
                 </div>
-                <p className="text-[#5c5c5c] w-[300px] mt-[20px] xs:w-full lg:w-[280px]">
+                <p className="text-[#5c5c5c] w-[300px] mt-[20px] xs:w-full lg:w-[414px]">
                     *Суд признал экстремистской и запретил в России
                     деятельность корпорации Meta по реализации социальных сетей
                 </p>

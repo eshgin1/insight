@@ -17,10 +17,10 @@ const programmArr = [
             {
                 calories: "800-900",
                 price: {
-                    one: "1 500",
-                    seven: "9 800",
-                    fourteen: "18 900",
-                    thirty: "37 500"
+                    one: {day: "1 600", total: "1 600"},
+                    seven: {day: "1 500", total: "10 500"},
+                    fourteen: {day: "1 450", total: "20 300"},
+                    thirty: {day: "1 350", total: "40 500"}
                 },
                 bju: {
                     protein: 52,
@@ -32,10 +32,10 @@ const programmArr = [
             {
                 calories: "1100-1200",
                 price: {
-                    one: "1 700",
-                    seven: "11 550",
-                    fourteen: "22 400",
-                    thirty: "45 000"
+                    one: {day: "1 800", total: "1 800"},
+                    seven: {day: "1 700", total: "12 250"},
+                    fourteen: {day: "1 700", total: "23 800"},
+                    thirty: {day: "1 600", total: "48 000"}
                 },
                 bju: {
                     protein: 80,
@@ -47,10 +47,10 @@ const programmArr = [
             {
                 calories: "1400-1500",
                 price: {
-                    one: "1 900",
-                    seven: "12 950",
-                    fourteen: "25 200",
-                    thirty: "51 000"
+                    one: {day: "2 000", total: "2 000"},
+                    seven: {day: "1 950", total: "13 650"},
+                    fourteen: {day: "1 900", total: "26 600"},
+                    thirty: {day: "1 800", total: "54 000"}
                 },
                 bju: {
                     protein: 105,
@@ -70,10 +70,10 @@ const programmArr = [
             {
                 calories: "1400-1500",
                 price: {
-                    one: "1 900",
-                    seven: "12 950",
-                    fourteen: "25 200",
-                    thirty: "51 000"
+                    one: {day: "2 000", total: "2 000"},
+                    seven: {day: "1 950", total: "13 650"},
+                    fourteen: {day: "1 900", total: "26 600"},
+                    thirty: {day: "1 800", total: "54 000"}
                 },
                 bju: {
                     protein: 105,
@@ -85,10 +85,10 @@ const programmArr = [
             {
                 calories: "1600-1700",
                 price: {
-                    one: "2 000",
-                    seven: "13 650",
-                    fourteen: "26 600",
-                    thirty: "54 000"
+                    one: {day: "2 100", total: "2 100"},
+                    seven: {day: "2 050", total: "14 350"},
+                    fourteen: {day: "2 000", total: "28 000"},
+                    thirty: {day: "1 900", total: "57 000"}
                 },
                 bju: {
                     protein: 120,
